@@ -4,7 +4,7 @@ import { ZodError, type ZodType } from "zod";
 import { ApiError } from "./errors";
 
 /** Convierte cualquier excepción en la respuesta JSON uniforme { error: { code, message } }. */
-export function errorResponse(err: unknown): NextResponse {
+function errorResponse(err: unknown): NextResponse {
   if (err instanceof ApiError) {
     return NextResponse.json(
       { error: { code: err.code, message: err.message, details: err.details } },

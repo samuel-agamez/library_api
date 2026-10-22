@@ -155,6 +155,11 @@ const RESPONSES = {
 
 const r = (name: keyof typeof RESPONSES) => ({ $ref: `#/components/responses/${name}` });
 
+const loanBody = (description: string) => ({
+  description,
+  content: json({ type: "object", properties: { loan: ref("Loan") } }),
+});
+
 // ───────────────────────────── Documento ─────────────────────────────
 
 export function buildOpenApiSpec(): Json {
@@ -393,14 +398,8 @@ export function buildOpenApiSpec(): Json {
           security: bearer,
           requestBody: { required: true, content: json(toSchema(createLoanSchema)) },
           responses: {
-            "200": {
-              description: "La solicitud ya existía (reintento)",
-              content: json({ type: "object", properties: { loan: ref("Loan") } }),
-            },
-            "201": {
-              description: "Solicitud creada",
-              content: json({ type: "object", properties: { loan: ref("Loan") } }),
-            },
+            "200": loanBody("La solicitud ya existía (reintento)"),
+            "201": loanBody("Solicitud creada"),
             "400": r("BadRequest"),
             "401": r("Unauthorized"),
             "403": r("Forbidden"),
@@ -418,10 +417,7 @@ export function buildOpenApiSpec(): Json {
           security: bearer,
           parameters: [idParam],
           responses: {
-            "200": {
-              description: "El préstamo",
-              content: json({ type: "object", properties: { loan: ref("Loan") } }),
-            },
+            "200": loanBody("El préstamo"),
             "401": r("Unauthorized"),
             "404": r("NotFound"),
           },
@@ -435,10 +431,7 @@ export function buildOpenApiSpec(): Json {
           parameters: [idParam],
           requestBody: { required: true, content: json(toSchema(loanActionSchema)) },
           responses: {
-            "200": {
-              description: "El préstamo actualizado",
-              content: json({ type: "object", properties: { loan: ref("Loan") } }),
-            },
+            "200": loanBody("El préstamo actualizado"),
             "400": r("BadRequest"),
             "401": r("Unauthorized"),
             "403": r("Forbidden"),

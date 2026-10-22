@@ -4,11 +4,11 @@ import { ApiError } from "../errors";
 import type { Book } from "../types";
 
 export const BOOKS = "books";
-export const COVERS = "bookCovers";
+const COVERS = "bookCovers";
 
 type BookDoc = Omit<Book, "id" | "coverUrl"> & { coverVersion?: number };
 
-export function toBook(id: string, data: BookDoc): Book {
+function toBook(id: string, data: BookDoc): Book {
   const { coverVersion = 0, ...rest } = data;
   return {
     id,

@@ -6,7 +6,7 @@ const ACTIVE_STATUSES: Loan["status"][] = ["requested", "approved"];
 
 export const LOAN_DAYS = 14;
 
-export function isActive(loan: Pick<Loan, "status">): boolean {
+function isActive(loan: Pick<Loan, "status">): boolean {
   return ACTIVE_STATUSES.includes(loan.status);
 }
 

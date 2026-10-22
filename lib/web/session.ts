@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { verifySessionCookie, SESSION_MAX_AGE_MS } from "../services/auth";
 import type { AuthUser, Role } from "../types";
 
-export const SESSION_COOKIE = "library_session";
+const SESSION_COOKIE = "library_session";
 
 export async function setSessionCookie(value: string): Promise<void> {
   (await cookies()).set(SESSION_COOKIE, value, {
