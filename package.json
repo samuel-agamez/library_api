@@ -17,7 +17,7 @@
     "create-user": "tsx --env-file=.env scripts/create-user.mts"
   },
   "dependencies": {
-    "firebase-admin": "^13.10.0",
+    "firebase-admin": "^14.5.0",
     "next": "^16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0",
