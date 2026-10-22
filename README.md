@@ -60,15 +60,22 @@ npm run create-user -- estudiante@tucorreo.com "TuClave" "Tu Nombre" student
 npm run create-user -- bibliotecario@tucorreo.com "TuClave" "Tu Nombre" librarian
 ```
 
-## API desplegada del curso
+## API desplegada
 
-Para probar sin configurar Firebase puedes usar la API del profesor:
+Ya está publicada en Vercel (proyecto `samuel-vg/library_api`):
 
-- URL: <https://library-api-beige-seven.vercel.app>
-- Estudiante: `estudiante@gmail.com` / `tdea2026`
-- Bibliotecario: `admin@gmail.com` / `tdea2026`
+- URL: <https://libraryapi-six.vercel.app>
+- Alias: <https://libraryapi-samuel-vg.vercel.app>
+- Estudiante: `estudiante@biblioteca.com` / `tdea2026`
+- Bibliotecario: `admin@biblioteca.com` / `tdea2026`
 
-> Es un entorno compartido: no borres datos ni cambies contraseñas. Úsalo solo para verificar el flujo.
+Las cuatro variables de Firebase están cargadas como *Secret* en los entornos Production y Preview. Para volver a desplegar:
+
+```bash
+vercel deploy --prod
+```
+
+> Si cambias las variables, hazlo con `vercel env add <NOMBRE> --environment 'production,preview' --force` y vuelve a desplegar.
 
 ## Comandos
 
