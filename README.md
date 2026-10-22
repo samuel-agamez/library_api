@@ -77,6 +77,12 @@ vercel deploy --prod
 
 > Si cambias las variables, hazlo con `vercel env add <NOMBRE> --environment 'production,preview' --force` y vuelve a desplegar.
 
+## Reglas de Firestore
+
+Solo el servidor (cuenta de servicio) usa Firestore, así que los clientes deben quedar bloqueados. El archivo `firestore.rules` ya contiene la regla `allow read, write: if false`. Aplícala en **Firebase Console → Firestore → Reglas** (o con `firebase deploy --only firestore:rules`).
+
+> El Admin SDK omite estas reglas; la app móvil y el navegador nunca hablan con Firebase directamente.
+
 ## Comandos
 
 | Comando | Qué hace |
