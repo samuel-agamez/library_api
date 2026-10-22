@@ -45,3 +45,7 @@ next-env.d.ts
 # Firebase service account keys (credenciales de administrador: NUNCA subir a git)
 *-firebase-adminsdk-*.json
 serviceAccount*.json
+
+# Cuenta de servicio local (nunca subir)
+service-account*.json
+*.private-key.json
