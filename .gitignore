@@ -49,3 +49,26 @@ serviceAccount*.json
 # Cuenta de servicio local (nunca subir)
 service-account*.json
 *.private-key.json
+
+# Herramientas y cachés
+.eslintcache
+.turbo/
+
+# Claves y certificados
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Firebase CLI
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Sistema y editor
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
